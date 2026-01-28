@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Nombre{% endblock %}
+
+{% block content %}
+<div class="header">
+    <h1>🗑️ Confirmar Eliminación</h1>
+</div>
+
+<div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading">⚠️ Advertencia</h4>
+    <p>Estás a punto de eliminar el siguiente nombre:</p>
+    <p class="h5"><strong>{{ object.nombre }}</strong></p>
+    <hr>
+    <p class="mb-0">Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?</p>
+</div>
+
+<div class="button-group">
+    <form method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+            ✓ Sí, Eliminar
+        </button>
+    </form>
+    <a href="{% url 'nombre_list' %}" class="btn btn-secondary">
+        ✗ Cancelar
+    </a>
+</div>
+
+<style>
+    .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+    }
+</style>
+{% endblock %}

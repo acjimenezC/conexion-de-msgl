@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Nombre{% endblock %}
+
+{% block content %}
+<h1>Agregar Nombre</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+    <a href="{% url 'lista_nombres' %}">Cancelar</a>
+</form>
+{% endblock %}

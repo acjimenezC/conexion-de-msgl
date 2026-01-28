@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Nombre{% endblock %}
+
+{% block content %}
+<h1>Agregar Nombre</h1>
+
+{% if mensaje_error %}
+    <div style="background: #fee; border: 1px solid #f99; color: #c33; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+        <strong>⚠️ Advertencia:</strong> {{ mensaje_error }}
+    </div>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+    <a href="{% url 'lista_nombres' %}">Cancelar</a>
+</form>
+{% endblock %}
